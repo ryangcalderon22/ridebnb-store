@@ -7,13 +7,18 @@
     {% # Load and preload the critical CSS %}
     {{ 'critical.css' | asset_url | stylesheet_tag: preload: true }}
 
+    {% # Load and preload the application CSS %}
+    {{ 'application.css' | asset_url | stylesheet_tag: preload: true }}
+
     {% # Social, title, etc. %}
     {% render 'meta-tags' %}
+
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     {{ content_for_header }}
   </head>
 
-  <body>
+  <body class="bg-red-800">
     {% sections 'header-group' %}
 
     {{ content_for_layout }}
